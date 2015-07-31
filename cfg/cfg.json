@@ -1,0 +1,181 @@
+{
+    "location": {
+            "country":"France",
+            "city":"Paris",
+            "lat":"48.856578",
+            "lon":"2.351828"
+    },
+    "graphs": [
+        {
+            "title": "Temperature (°C)",
+            "rrd": "temp_simple.rrd",
+            "delay": 300,
+            "id": "temperature",
+            "sources": [
+                {
+                    "ds" : "in",
+                    "disabled" : 0,
+                    "sensor" : "temp_in",
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "Inside",
+                        "color": "#ffb000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                },
+                {
+                    "ds" : "out",
+                    "disabled" : 0,
+                    "sensor" : "outside",
+                    "data_index": 0,
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "Outside",
+                        "color": "#00c0c0",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "position": "right"
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Living Room Light",
+            "rrd": "lightLR.rrd",
+            "delay": 300,
+            "id": "lightLR",
+            "sources": [
+                {
+                    "ds" : "on",
+                    "disabled" : 0,
+                    "sensor" : "lightLR",
+                    "min" : 0,
+                    "max" : 1,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#880000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": true,
+                            "fillColor": { 
+                                "colors": ["#330000", "#880000"]
+                            }
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 1,
+                    "show": false
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Kitchen Light",
+            "rrd": "lightK.rrd",
+            "delay": 300,
+            "id": "lightK",
+            "sources": [
+                {
+                    "ds" : "on",
+                    "disabled" : 0,
+                    "sensor" : "lightK",
+                    "min" : 0,
+                    "max" : 1,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#880000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": true,
+                            "fillColor": { 
+                                "colors": ["#330000", "#880000"]
+                            }
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 1,
+                    "show": false
+                },
+                "lines": { "show": true }
+            }
+        }
+    ],                
+    "sensors": {
+        "outside": {
+            "disabled": 1,
+            "type": "WU",
+            "id": "get your API key at http://www.wunderground.com/weather/api/"
+        },
+        "temp_in": {
+            "disabled": 0,
+            "type": "DS18B20",
+            "id": "28-0314645753ff"
+        },
+        "lightLR": {
+            "disabled": 0,
+            "type": "relay",
+            "id": 7
+        },
+        "lightK": {
+            "disabled": 0,
+            "type": "relay",
+            "id": 17
+        }
+    },
+    "app" : {
+        "light": {
+            "title": "Light",
+            "duration": 0,
+            "map": [
+                {
+                    "name": "Living Room",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON",
+                            "gpio": 7
+                        }
+                    ]
+                },
+                {
+                    "name": "Kitchen",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON",
+                            "gpio": 17
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

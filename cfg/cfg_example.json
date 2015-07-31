@@ -1,0 +1,557 @@
+{
+    "location": {
+            "country":"France",
+            "city":"Paris",
+            "lat":"48.856578",
+            "lon":"2.351828"
+    },
+    "graphs": [
+        {
+            "title": "Temperature (°C)",
+            "rrd": "temperature.rrd",
+            "delay": 300,
+            "id": "temperature",
+            "sources": [
+                {
+                    "ds" : "GF",
+                    "disabled" : 0,
+                    "sensor" : "temp_GF",
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "Ground Floor",
+                        "color": "#ffb000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                },
+                {
+                    "ds" : "1F",
+                    "disabled" : 0,
+                    "sensor" : "temp_1F",
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "1st Floor",
+                        "color": "#ff8000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                },
+                {
+                    "ds" : "2F",
+                    "disabled" : 0,
+                    "sensor" : "temp_2F",
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "2nd Floor",
+                        "color": "#ff5000",
+                        "checked": true,
+                        "lines": {
+                           "show": true,
+                            "fill": false
+                        }
+                    }
+                },
+                {
+                    "ds" : "out",
+                    "disabled" : 0,
+                    "sensor" : "outside",
+                    "data_index": 0,
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "Outside",
+                        "color": "#00c0c0",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "position": "right"
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Relative Humidity (%)",
+            "rrd": "hr.rrd",
+            "delay": 300,
+            "id": "rh",
+            "sources": [
+                {
+                    "ds" : "In",
+                    "disabled" : 0,
+                    "sensor" : "inside",
+                    "data_index" : 1,
+                    "min" : 0,
+                    "max" : 100,
+                    "ds_opts": {
+                        "label": "Inside",
+                        "color": "#ff8000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                },
+                {
+                    "ds" : "Out",
+                    "disabled" : 0,
+                    "sensor" : "outside",
+                    "data_index" : 1,
+                    "min" : 0,
+                    "max" : 100,
+                    "ds_opts": {
+                        "label": "Outside",
+                        "color": "#00c0c0",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 100,
+                    "position": "right"
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Ventilation",
+            "rrd": "fan.rrd",
+            "delay": 300,
+            "id": "fan",
+            "sources": [
+                {
+                    "ds" : "on",
+                    "disabled" : 0,
+                    "sensor" : "fan",
+                    "min" : 0,
+                    "max" : 1,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#880000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": true,
+                            "fillColor": { 
+                                "colors": ["#330000", "#880000"]
+                            }
+                        }
+                    }
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 1,
+                    "show": false
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Drain Pump",
+            "rrd": "relevage.rrd",
+            "delay": 300,
+            "id": "relevage",
+            "sources": [
+                {
+                    "ds" : "on",
+                    "disabled" : 0,
+                    "sensor" : "drain_pump",
+                    "min" : 0,
+                    "max" : 1,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#880000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": true,
+                            "fillColor": { 
+                                "colors": ["#330000", "#880000"]
+                            }
+                        }
+                    }
+
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 1,
+                    "show": false
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Pool Filtering Pump",
+            "rrd": "pool.rrd",
+            "delay": 300,
+            "id": "pool",
+            "sources": [
+                {
+                    "ds" : "on",
+                    "disabled" : 0,
+                    "sensor" : "filter_pump",
+                    "min" : 0,
+                    "max" : 1,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#880000",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": true,
+                            "fillColor": { 
+                                "colors": ["#330000", "#880000"]
+                            }
+                        }
+                    }
+
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "max": 1,
+                    "show": false
+                },
+                "lines": { "show": true }
+            }
+        },
+        {
+            "title": "Pool Water (°C)",
+            "rrd": "water.rrd",
+            "delay": 300,
+            "id": "water",
+            "sources": [
+                {
+                    "ds" : "temp",
+                    "disabled" : 0,
+                    "sensor" : "temp_1F",
+                    "min" : -20,
+                    "max" : 50,
+                    "ds_opts": {
+                        "label": "on",
+                        "color": "#0000cc",
+                        "checked": true,
+                        "lines": {
+                            "show": true,
+                            "fill": false
+                        }
+                    }
+
+                }
+            ],
+            "graph_opts" : {
+                "legend": { "noColumns" : 4 },
+                "yaxis": {
+                    "min": 0,
+                    "position": "right"
+                },
+                "lines": { "show": true }
+            }
+        }
+    ],                
+    "sensors": {
+        "outside": {
+            "disabled": 1,
+            "type": "WU",
+            "id": "get your API key at http://www.wunderground.com/weather/api/"
+        },
+        "inside": {
+            "disabled": 0,
+            "type": "DHT22",
+            "id": 21
+        },
+        "temp_GF": {
+            "disabled": 0,
+            "type": "DS18B20",
+            "id": "28-0314645753ff"
+        },
+        "temp_1F": {
+            "disabled": 0,
+            "type": "DS18B20",
+            "id": "28-03146457f1ff"
+        },
+        "temp_2F": {
+            "disabled": 0,
+            "type": "DS18B20",
+            "id": "28-0314646b7cff"
+        },
+        "filter_pump": {
+            "disabled": 0,
+            "type": "relay",
+            "id": 18
+        },
+        "drain_pump": {
+            "disabled": 0,
+            "type": "relay",
+            "id": 17
+        },
+        "fan": {
+            "disabled": 0,
+            "type": "relay",
+            "id": 7
+        }
+    },
+    "app" : {
+        "ventilation": {
+            "title": "Ventilation",
+            "duration": 3600,
+            "map": [
+                {
+                    "name": "High Speed",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON",
+                            "gpio": 7
+                        }
+                    ]
+                }
+            ],
+            "progs": [
+                {
+                    "name":"fan",
+                    "label":"auto"
+                }
+            ],
+            "ranks": 1,
+            "parameters":[
+                {
+                    "id": "p1",
+                    "label": "Min (%RH)",
+                    "min": 0
+                },
+                {
+                    "id": "p2",
+                    "label": "Max (%RH)",
+                    "min": 50
+                }
+            ]
+        },
+        "pump": {
+            "title": "Pumps",
+            "duration": 3600,
+            "map": [
+                {
+                    "name":"Drain Pump",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON", 
+                            "gpio": 17
+                        }
+                    ]
+                }
+            ],
+            "progs":[
+                {
+                    "name":"freq",
+                    "label":"/"
+                }
+            ],
+            "ranks": 1,
+            "parameters":[
+                {
+                    "id": "p1",
+                    "label": "Frequency (h)",
+                    "min": 1
+                },
+                {
+                    "id": "p2",
+                    "label": "Duration (min)",
+                    "min": 1
+                }
+            ]
+        },
+        "heating": {
+            "title": "Heating",
+            "duration": 86400,
+            "map": [
+                {
+                    "name":"Ground Floor",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON",
+                            "gpio": 5
+                        }
+                    ]
+                },
+                {
+                    "name":"1st Floor",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON",
+                            "gpio": 6
+                        }
+                    ]
+                }
+            ]
+        },
+        "pool": {
+            "title": "Pool",
+            "duration": 1800,
+            "map": [
+                {
+                    "name":"Filtering Pump",
+                    "cmd": [
+                        {
+                            "id": "On",
+                            "label": "ON", 
+                            "gpio": 18
+                        }
+                    ]
+                }
+            ],
+            "progs":[
+                {
+                    "name":"pool",
+                    "label":"auto"
+                }
+            ],
+            "ranks": 1
+        },
+        "shutter": {
+            "title": "Roller Shutters",
+            "duration": 30,
+            "master": [
+                {
+                    "name": "ALL",
+                    "cmd": [
+                        {
+                            "id": "Up",
+                            "label": "/\\"
+                        },
+                        {
+                            "id": "Dn",
+                            "label": "\\/"
+                        }
+                    ]
+                }
+            ],
+            "map": [
+                {
+                    "name": "Living Room",
+                    "cmd": [
+                        {
+                            "id": "Up",
+                            "label": "/\\",
+                            "gpio":27
+                        },
+                        {
+                            "id": "Dn",
+                            "label": "\\/",
+                            "gpio":22
+                        }
+                    ]
+                },
+                {
+                    "name": "Bedroom",
+                    "cmd": [
+                        {
+                            "id": "Up",
+                            "label": "/\\",
+                            "gpio":23
+                        },
+                        {
+                            "id": "Dn",
+                            "label": "\\/",
+                            "gpio":24
+                        }
+                    ]
+                },
+                {
+                    "name": "Kitchen",
+                    "cmd": [
+                        {
+                            "id": "Up",
+                            "label": "/\\",
+                            "gpio":10
+                        },
+                        {
+                            "id": "Dn",
+                            "label": "\\/",
+                            "gpio":9
+                        }
+                    ]
+                },
+                {
+                    "name": "Patio",
+                    "cmd": [
+                        {
+                            "id": "Up",
+                            "label": "/\\",
+                            "gpio":25
+                        },
+                        {
+                            "id": "Dn",
+                            "label": "\\/",
+                            "gpio":8
+                        }
+                    ]
+                }
+            ],
+            "progs":[
+                {
+                    "name":"cron",
+                    "label":"daily"
+                },
+                {
+                    "name":"wakeup",
+                    "label":"wake up"
+                },
+                {
+                    "name":"sun",
+                    "label":"sun"
+                }
+            ],
+            "ranks": 1,
+            "days":["M", "Tu", "W", "Th", "F", "Sa", "Su"],
+            "parameters":[
+                {
+                    "id": "p1",
+                    "label": "H",
+                    "min": 0
+                },
+                {
+                    "id": "p2",
+                    "label": "min",
+                    "min": 0
+                }
+            ]
+        }
+    }
+}
