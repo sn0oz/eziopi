@@ -18,6 +18,7 @@ A status page shows all monitored data, and each application page generate butto
 ##### Dependencies:
 - [webiopi](https://code.google.com/p/webiopi/)
 - [APScheduler](https://pypi.python.org/pypi/APScheduler/)
+
     ```
     cd ~/eziopi/python
     tar -xvzf APScheduler-3.0.0.tar.gz
@@ -26,6 +27,7 @@ A status page shows all monitored data, and each application page generate butto
     ```
 - [rrdtool](http://oss.oetiker.ch/rrdtool/)
     - rrdtool dependencies:
+
         ```
         sudo apt-get install rrdtool libcairo2-dev libpango1.0-dev libglib2.0-dev libxml2-dev librrd-dev
         ```
@@ -36,6 +38,7 @@ A status page shows all monitored data, and each application page generate butto
     sudo python3 setup.py install
     ```
 - [ephem](http://rhodesmill.org/pyephem/)
+
     ```
     cd ~/eziopi/python
     tar -xvzf ephem-3.7.5.1.tar.gz
@@ -43,12 +46,14 @@ A status page shows all monitored data, and each application page generate butto
     sudo python3 setup.py install
     ```
 - additionnal python modules
+
     ```
     sudo apt-get install python3-requests python3-sqlalchemy
     ```
 
 ### Configuration
 - webiopi config file
+
     ```
     cd ~/eziopi/
     sudo cp cfg/webiopi_config /etc/webiopi/config
